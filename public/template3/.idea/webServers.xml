@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="914d75f0-12cb-489a-ae10-cd224df8ad32" name="Supermarket" url="http://dev06.ovicsoft.com/html/supermarket">
+        <fileTransfer host="dev06.ovicsoft.com" port="21" rootFolder="/html/supermarket" password="dfcedfc3dfc4dfc2dfdedfc2dfdfdfd3df9bdf98df99" username="thuy@dev06.ovicsoft.com">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

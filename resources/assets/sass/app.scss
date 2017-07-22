@@ -1,0 +1,50 @@
+
+.hideVisible{
+	
+	display: none;
+}
+[v-cloak] {
+  display: none;
+}
+.categories-page .product-box{
+	padding-left: 2px; 
+    padding-right: 2px;
+}
+
+.input.is-danger{
+	
+	border: 2px solid #a94442;
+}
+
+
+
+
+/**********  Pagination *************/
+@media (max-width: 991px) and (min-width: 768px){
+	
+	body .page-nav{
+	
+		width: 100%
+	}
+}
+
+.form-control .border-input{
+	border: 1px solid #CCC5B9;
+}
+
+@media (min-width: 768px){
+	
+	.modal-dialog {
+
+		margin: 100px auto;
+	}
+	
+
+}
+
+.alert .top{
+	
+	top: 85px;
+}
+
+
