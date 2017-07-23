@@ -46,10 +46,9 @@
       </v-toolbar-items>
     </v-toolbar>
     <main class="grey lighten-4">
-      <v-container class="pt-0 mt-0">
+      <v-container class="pt-0 mt-0" fluid>
         <bread-crumb></bread-crumb>
         <!--v-router-->
-        <products-view></products-view>
         <products-view></products-view>
       </v-container>
     </main>

@@ -1,5 +1,5 @@
 <template>
-   <div >
+   <div>
     <v-breadcrumbs icons divider="chevron_right" >
       <v-breadcrumbs-item 
         v-for="item in items" :key="item.text"
@@ -8,9 +8,7 @@
         {{ item.text }}
       </v-breadcrumbs-item>
     </v-breadcrumbs>
-    <v-spacer></v-spacer>
-    <p class="text-lg-left">...</p>
-<p class="text-xl-right">...</p>
+    <br style="clear:both" />    
     </div>
 </template>
 <script>
@@ -35,3 +33,13 @@
     }
   }
 </script>
+
+<style type="text/css">
+  .breadcrumbs {
+    float: left;
+
+  }
+  ul{
+    padding-left: 0px;
+  }
+</style>

@@ -1,7 +1,7 @@
 <template>
-  <v-layout column>
-    <v-flex sm3  >
-      <v-card flat hover>
+  <div id="example-5">
+    <v-layout row-md column child-flex-md>
+      <v-card light hover class=" ma-1">
         <v-card-media
           src="/static/doc-images/cards/sunshine.jpg"
           height="200px"
@@ -27,9 +27,33 @@
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
-    </v-flex>
-  </v-layout>
-
+      <v-card light hover class=" ma-1">
+        <v-card-text>one</v-card-text>
+      </v-card>
+      <v-card light hover class=" ma-1">
+        <v-card-text>one</v-card-text>
+      </v-card>
+      <v-card light hover class=" ma-1">
+        <v-card-text>one</v-card-text>
+      </v-card>
+      
+    </v-layout>
+    <v-layout row-sm column child-flex-sm>
+      <v-card dark class="primary ma-1">
+        <v-card-text>one</v-card-text>
+      </v-card>
+      <v-card dark class="secondary ma-1">
+        <v-card-text>two</v-card-text>
+      </v-card>
+      <v-card dark class="accent ma-1">
+        <v-card-text>three</v-card-text>
+      </v-card>
+      <v-card dark class="accent ma-1">
+        <v-card-text>three</v-card-text>
+      </v-card>
+     
+    </v-layout>
+  </div>
 </template>
 <script>
   export default {
@@ -38,3 +62,13 @@
     })
   }
 </script>
+<style>
+  #example-5 {
+    color: #fff;
+    text-align: center;
+  }
+
+  #example-5 .card {
+    margin-bottom: 16px;
+  }
+</style>
