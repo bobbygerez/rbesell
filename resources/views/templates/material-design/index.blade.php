@@ -3,12 +3,16 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>RbeSell</title>
-    <link rel='stylesheet' href="{{ asset('material-design/css/app.css') }}">
+    <title>Juan Merkado</title>
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css">
+ 
+    
 </head>
 <body>
 <div id="app">
-    
+    <main-layout></main-layout>
+    <main-footer></main-footer>
 </div>
 <script type="text/javascript">
     window.SiteKey = {!!  json_encode([
@@ -23,8 +27,7 @@
 
               !!}
 </script>
-
+ 
 <script type='text/javascript' src="{{ asset('material-design/js/app.js') }}"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>
