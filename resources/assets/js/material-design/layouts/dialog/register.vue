@@ -34,7 +34,7 @@ import AlertSuccess from '../alerts/success.vue'
   export default {
     data () {
       return {
-        dialog: true
+        dialog: false
       }
     },
     components: {

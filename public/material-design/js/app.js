@@ -696,6 +696,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -1325,18 +1348,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.drawer = !_vm.drawer
       }
     }
-  }), _vm._v(" "), _c('v-toolbar-title', [_vm._v("RBeSell")]), _vm._v(" "), _c('v-spacer'), _vm._v(" "), _c('v-toolbar-items', {
+  }), _vm._v(" "), _c('v-toolbar-title', {
     staticClass: "hidden-sm-and-down"
-  }, [_c('v-menu', {
+  }, [_vm._v("RBeSell")]), _vm._v(" "), _c('v-spacer'), _vm._v(" "), _c('v-toolbar-items', [_c('v-text-field', {
+    staticClass: "ml-2",
+    attrs: {
+      "prepend-icon": "search",
+      "hide-details": "",
+      "single-line": "",
+      "dark": "",
+      "auto-grow": "",
+      "label": "Search product..."
+    }
+  }), _vm._v(" "), _c('v-menu', {
     attrs: {
       "origin": "center center",
       "transition": "scale-transition",
       "bottom": "",
-      "flat": ""
+      "flat": "",
+      "left": ""
     }
   }, [_c('v-btn', {
     staticClass: "red white--text text--darken-2",
     attrs: {
+      "small": "",
       "fab": ""
     },
     slot: "activator"
@@ -1348,7 +1383,33 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('v-list-tile', {
       key: item.title
     }, [_c('v-list-tile-title', [_vm._v(_vm._s(item.title))])], 1)
-  }))], 1), _vm._v(" "), _c('v-btn', {
+  }))], 1), _vm._v(" "), _c('v-menu', {
+    staticClass: "hidden-md-and-up",
+    attrs: {
+      "origin": "center center",
+      "transition": "scale-transition",
+      "bottom": "",
+      "flat": "",
+      "left": ""
+    }
+  }, [_c('v-btn', {
+    staticClass: "purple white--text text--darken-2",
+    attrs: {
+      "small": "",
+      "fab": ""
+    },
+    slot: "activator"
+  }, [_c('v-icon', {
+    attrs: {
+      "dark": ""
+    }
+  }, [_vm._v("more_vert")])], 1), _vm._v(" "), _c('v-list', _vm._l((_vm.items), function(item) {
+    return _c('v-list-tile', {
+      key: item.title
+    }, [_c('v-list-tile-title', [_vm._v(_vm._s(item.title))])], 1)
+  }))], 1)], 1), _vm._v(" "), _c('v-toolbar-items', {
+    staticClass: "hidden-sm-and-down"
+  }, [_c('v-btn', {
     staticClass: "white--text text--darken-2",
     attrs: {
       "flat": ""
@@ -20203,7 +20264,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
     return {
-      dialog: true
+      dialog: false
     };
   },
   components: {
