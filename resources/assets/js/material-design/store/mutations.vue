@@ -1,6 +1,8 @@
 <script type="text/javascript">
 	export const mutations = {
-		
+		loginDialog(state, loginDialog){
+			state.loginDialog = loginDialog
+		},
 		productables(state, productables){
 			state.productables = productables
 		},

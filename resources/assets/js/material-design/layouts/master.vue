@@ -4,24 +4,19 @@
     <toolbar></toolbar>
     <main class="grey lighten-4">
       <v-container class="pt-0 mt-0" fluid>
-        <bread-crumb></bread-crumb>
-        <!--v-router-->
-        <products-view></products-view>
-        <products-view></products-view>
-        <products-view></products-view>
-
-        <bread-crumb></bread-crumb>
+        <router-view></router-view>
       </v-container>
     </main>
     <reg-dialog></reg-dialog>
+    <login-dialog></login-dialog>
   </v-app>
 </template>
 <script>
-import ProductsView from '../layouts/cards/products.vue'
-import BreadCrumb from '../layouts/breadcrumbs/location.vue'
+
 import NavDrawer from '../layouts/navigation-drawer/nav-drawer.vue'
 import Toolbar from '../layouts/toolbar/toolbar.vue'
 import RegDialog from '../layouts/dialog/register.vue'
+import LoginDialog from '../layouts/dialog/login.vue'
   export default {
     data () {
       return {
@@ -35,7 +30,7 @@ import RegDialog from '../layouts/dialog/register.vue'
       }
     },
     components: {
-      ProductsView, BreadCrumb, NavDrawer, Toolbar, RegDialog
+      NavDrawer, Toolbar, RegDialog, LoginDialog
     }
   }
 </script>

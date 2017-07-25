@@ -39,6 +39,13 @@ import AlertSuccess from '../alerts/success.vue'
     },
     components: {
       AlertSuccess
+    },
+    computed: {
+
+        loginDialog(){
+
+          return this.$store.getters.loginDialog
+        }
     }
   }
 </script>

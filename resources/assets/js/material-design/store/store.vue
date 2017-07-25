@@ -11,7 +11,9 @@ export const store = new Vuex.Store({
 	mutations,
 	actions,
 	getters: {
-		
+		loginDialog(){
+			return store.state.loginDialog
+		},
 		productables(){
 			return store.state.productables
 		},

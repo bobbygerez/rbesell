@@ -2,6 +2,8 @@
 	
 	export const state = {
 
+		loginDialog: false,
+		registerDialog: false,
 		productables:{},
 		extLinkModal: false,
 		branchUrlSave: window.location.origin + '/api/branch-company-info-update',
