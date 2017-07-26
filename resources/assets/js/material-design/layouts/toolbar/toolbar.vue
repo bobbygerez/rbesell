@@ -74,7 +74,7 @@
           this.$store.commit('loginDialog', true)
         },
         registerDialog(){
-          
+          this.$store.commit('registerDialog', true);
         }
     }
 	}

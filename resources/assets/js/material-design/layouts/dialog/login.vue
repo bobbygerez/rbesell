@@ -7,8 +7,8 @@
         </v-card-title>
         <v-card-text>
           <!-- <alert-success></alert-success> -->
-          <v-text-field label="Email" required v-model="email" :rules="errors.email"></v-text-field>
-          <v-text-field label="Password" type="password" required v-model="password"></v-text-field>
+          <v-text-field label="Email" required v-model="email" :rules="veeErrors.email"></v-text-field>
+          <v-text-field label="Password" type="password" required v-model="password"  :rules="veeErrors.password"></v-text-field>
           <small>*indicates required field</small>
         </v-card-text>
         <v-card-actions>
@@ -29,13 +29,8 @@ import AlertSuccess from '../alerts/success.vue'
     data () {
       return {
         dialog: true,
-        password: '',
+        password: null,
         validator: null,
-        validationRules: {
-            name: 'required|alpha|min:3',
-            email: 'required|email'
-         },
-        name: null,
         email: null
       }
     },
@@ -50,20 +45,6 @@ import AlertSuccess from '../alerts/success.vue'
         loginDialog(){
 
           return this.$store.getters.loginDialog
-        },
-         errors() {
-          let errors = {}
-          Object.keys(this.validationRules).forEach(key => {
-            if (!errors[key]) {
-              errors[key] = []
-            }
-            this.validator.validate(key, this[key]).catch(() => {})
-          })
-
-          this.validator.getErrors().errors.forEach(error => {
-            errors[error.field].push(error.msg)
-          })
-          return errors
         }
     },
     methods: {

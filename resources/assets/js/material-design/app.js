@@ -18,6 +18,43 @@ Vue.use(Vuetify)
 Vue.use(VueRouter)
 Vue.use(VeeValidate);
 
+/*********** MIXIN **************/
+Vue.mixin({
+  
+  data(){
+  		return {
+  			  validationRules: {
+	            password: 'required',
+	            email: 'required|email',
+	            firstname: 'required|alpha_spaces|min:20',
+	            lastname: 'required|alpha_spaces|min:20'
+	         },
+  		}
+  },
+  computed: {
+
+         veeErrors() {
+          let errors = {}
+          Object.keys(this.validationRules).forEach(key => {
+            if (!errors[key]) {
+              errors[key] = []
+            }
+
+            this.validator.validate(key, this[key]).catch(() => {})
+
+          })
+
+          this.validator.getErrors().errors.forEach(error => {
+            errors[error.field].push(error.msg)
+          })
+          return errors
+        }
+  }
+})
+/*********** END MIXIN **********/
+
+
+
 var app = new Vue({
 	el: '#app',
 	router,

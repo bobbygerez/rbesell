@@ -1,5 +1,9 @@
 <script type="text/javascript">
 	export const mutations = {
+
+		registerDialog(state, registerDialog){
+			state.registerDialog = registerDialog
+		},
 		loginDialog(state, loginDialog){
 			state.loginDialog = loginDialog
 		},
