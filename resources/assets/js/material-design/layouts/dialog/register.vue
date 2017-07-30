@@ -8,10 +8,10 @@
         <v-card-text>
           <alert-success></alert-success>
           
-          <v-text-field label="Firstname" v-model="firstname" :rules="veeErrors.firstname"></v-text-field>
-          <v-text-field label="Lastname" v-model="lastname" :rules="veeErrors.lastname"></v-text-field>
-          <v-text-field label="Email" v-model="email" :rules="veeErrors.email"></v-text-field>
-          <v-text-field label="Password" type="password" v-model="password" :rules="veeErrors.password"></v-text-field>
+          <v-text-field label="Firstname" v-model="firstname" :rules="rules.firstname"></v-text-field>
+          <v-text-field label="Lastname" v-model="lastname" :rules="rules.lastname"></v-text-field>
+          <v-text-field label="Email" v-model="email" :rules="rules.email"></v-text-field>
+          <v-text-field label="Password" type="password" v-model="password" :rules="rules.password"></v-text-field>
           <small>*indicates required field</small>
         </v-card-text>
         <v-card-actions>
@@ -36,7 +36,14 @@ import AlertSuccess from '../alerts/success.vue'
         email: null,
         password: null,
         firstname: null,
-        lastname: null
+        lastname: null,
+         rules: {
+          email: [],
+          password: [],
+          firstname: [],
+          lastname: []
+        },
+
       }
     },
     created () {
@@ -56,6 +63,23 @@ import AlertSuccess from '../alerts/success.vue'
 
       close(){
         this.$store.commit('registerDialog', false)
+      }
+    },
+    watch: {
+
+      email(){
+
+          this.veeErrors()
+      },
+      password(){
+        this.veeErrors()
+      },
+      firstname(){
+
+        this.veeErrors()
+      },
+      lastname(){
+        this.veeErrors()
       }
     }
   }

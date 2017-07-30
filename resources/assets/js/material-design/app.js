@@ -22,18 +22,21 @@ Vue.use(VeeValidate);
 Vue.mixin({
   
   data(){
-  		return {
-  			  validationRules: {
-	            password: 'required',
-	            email: 'required|email',
-	            firstname: 'required|alpha_spaces|min:20',
-	            lastname: 'required|alpha_spaces|min:20'
-	         },
-  		}
-  },
-  computed: {
 
-         veeErrors() {
+    return {
+      
+      validationRules: {
+              password: 'required',
+              email: 'required|email',
+              firstname: 'required',
+              lastname: 'required',
+           },
+    }
+  },
+  methods: {
+
+   
+    veeErrors() {
           let errors = {}
           Object.keys(this.validationRules).forEach(key => {
             if (!errors[key]) {
@@ -47,7 +50,7 @@ Vue.mixin({
           this.validator.getErrors().errors.forEach(error => {
             errors[error.field].push(error.msg)
           })
-          return errors
+          this.rules =  errors
         }
   }
 })
@@ -61,7 +64,19 @@ var app = new Vue({
 	store,
 	components: {
 		MainLayout, MainFooter
-	}
+	},
+
+  created(){
+
+    console.log('asdf')
+    this.getCategories()
+  },
+  methods: {
+
+     getCategories(){
+       axios.get(window.location.origin + '/api/categories')
+    }
+  }
 
 
 })

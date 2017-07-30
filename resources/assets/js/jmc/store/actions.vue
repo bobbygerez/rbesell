@@ -53,6 +53,8 @@
 		deleteAddressFieldName(state, fieldName){
 
 			delete state.getters.branch.address[fieldName]
-		}
+		},
+
+		
 	}
 </script>

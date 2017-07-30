@@ -1,7 +1,6 @@
 <script type="text/javascript">
 	
 	export const state = {
-
 		loginDialog: false,
 		registerDialog: false,
 		productables:{},

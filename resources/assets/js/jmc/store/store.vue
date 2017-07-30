@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
 	actions,
 	getters: {
 		
+		
 		productables(){
 			return store.state.productables
 		},

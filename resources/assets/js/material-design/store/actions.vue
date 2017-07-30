@@ -48,11 +48,6 @@
 		},
 		branchAddressType(state, addressType){
 			state.getters.branch.address.address_type = addressType
-		},
-
-		deleteAddressFieldName(state, fieldName){
-
-			delete state.getters.branch.address[fieldName]
 		}
 	}
 </script>

@@ -5,29 +5,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items >
         <v-text-field prepend-icon="search" hide-details single-line dark class="ml-2" auto-grow label="Search product..."></v-text-field>
-         <v-menu
-          origin="center center"
-          transition="scale-transition"
-          bottom
-          flat
-          left
-        >
-          <v-btn small fab slot="activator" class="red white--text text--darken-2">
-            <v-icon dark>account_circle</v-icon>
-          </v-btn>
-          <v-list>
-            <v-list-tile>
-              <v-list-tile-title @click="loginDialog">
-                Login
-              </v-list-tile-title>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-title @click="registerDialog">
-                Register
-              </v-list-tile-title>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
+         
         <v-menu
           origin="center center"
           transition="scale-transition"
@@ -36,7 +14,7 @@
           left
           class="hidden-md-and-up"
         >
-          <v-btn small fab slot="activator" class="purple white--text text--darken-2">
+          <v-btn flat slot="activator" class="purple white--text text--darken-2">
             <v-icon dark>more_vert</v-icon>
           </v-btn>
           <v-list >
@@ -47,9 +25,21 @@
         </v-menu>
       </v-toolbar-items>
        <v-toolbar-items class="hidden-sm-and-down">
-         <v-btn flat class="white--text text--darken-2"> Home</v-btn>
-        <v-btn flat class="white--text text--darken-2"> About Us</v-btn>
-        <v-btn flat class="white--text text--darken-2"> Services</v-btn>
+          <v-btn flat @click="loginDialog" v-tooltip:bottom="{ html: 'Login' }">
+           <v-icon class="white--text text--darken-2" >account_circle</v-icon>
+         </v-btn>
+         <v-btn flat @click="registerDialog" v-tooltip:bottom="{ html: 'Register Account' }">
+           <v-icon class="white--text text--darken-2">assignment_ind</v-icon>
+         </v-btn>
+         <v-btn flat v-tooltip:bottom="{ html: 'Home' }">
+           <v-icon class="white--text text--darken-2" >home</v-icon>
+         </v-btn>
+        <v-btn flat v-tooltip:bottom="{ html: 'About Us' }">
+          <v-icon class="white--text text--darken-2" >account_balance</v-icon>
+        </v-btn>
+        <v-btn flat v-tooltip:bottom="{ html: 'Services' }">
+          <v-icon class="white--text text--darken-2" >tag_faces</v-icon>
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 </template>
@@ -79,3 +69,9 @@
     }
 	}
 </script>
+
+<style type="text/css">
+  [data-tooltip]:before {
+    background-color: rgba(0,0,0,.87);
+  }
+</style>

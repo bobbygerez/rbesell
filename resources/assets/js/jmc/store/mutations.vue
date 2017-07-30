@@ -1,6 +1,7 @@
 <script type="text/javascript">
 	export const mutations = {
 		
+		
 		productables(state, productables){
 			state.productables = productables
 		},

@@ -11,7 +11,6 @@ export const store = new Vuex.Store({
 	mutations,
 	actions,
 	getters: {
-
 		registerDialog(){
 			return store.state.registerDialog
 		},
