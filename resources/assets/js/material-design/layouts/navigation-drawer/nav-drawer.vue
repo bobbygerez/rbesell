@@ -20,7 +20,7 @@
          <v-list-tile-title>
             <v-select
               label="Category"
-              v-bind:items="states"
+              v-bind:items="categories"
               v-model="e7"
               chips
               persistent-hint
@@ -54,7 +54,9 @@
       </v-list>
     </v-navigation-drawer>
 </template>
+
 <script>
+
   export default {
     data () {
       return {
@@ -76,8 +78,24 @@
           'Rhode Island','South Carolina','South Dakota','Tennessee',
           'Texas','Utah','Vermont','Virgin Island','Virginia',
           'Washington','West Virginia','Wisconsin','Wyoming'
-        ]
+        ],
+        categories: []
       }
+    },
+    created(){
+      this.getCategories()
+    },
+    methods: {
+
+        getCategories(){
+          var store = this.$store
+          window.axios.get(window.base_url + 'api/maincategory')
+          .then(res => {
+            store.commit('mainCategories', res.data.mainCategories)
+          })
+          .catch()
+        }
     }
   }
 </script>
+

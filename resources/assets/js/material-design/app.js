@@ -8,6 +8,10 @@ import VeeValidate from 'vee-validate';
 import {store} from './store/store.vue'
 import {routes} from './router/routes.vue'
 
+
+window.axios = axios;
+window.base_url = window.location.origin + '/';
+
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 const router = new VueRouter({
@@ -64,19 +68,7 @@ var app = new Vue({
 	store,
 	components: {
 		MainLayout, MainFooter
-	},
-
-  created(){
-
-    console.log('asdf')
-    this.getCategories()
-  },
-  methods: {
-
-     getCategories(){
-       axios.get(window.location.origin + '/api/categories')
-    }
-  }
+	}
 
 
 })

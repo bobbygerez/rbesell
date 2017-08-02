@@ -1,6 +1,9 @@
 <script type="text/javascript">
 	export const mutations = {
 
+		mainCategories(state, mainCategories){
+			state.mainCategories = mainCategories
+		},
 		registerDialog(state, registerDialog){
 			state.registerDialog = registerDialog
 		},

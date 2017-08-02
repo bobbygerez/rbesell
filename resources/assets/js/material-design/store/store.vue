@@ -11,6 +11,10 @@ export const store = new Vuex.Store({
 	mutations,
 	actions,
 	getters: {
+
+		mainCategories(){
+			return store.state.mainCategories
+		},
 		registerDialog(){
 			return store.state.registerDialog
 		},

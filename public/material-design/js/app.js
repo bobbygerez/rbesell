@@ -13756,6 +13756,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+window.axios = __WEBPACK_IMPORTED_MODULE_2_axios___default.a;
+window.base_url = window.location.origin + '/';
+
 __WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 const router = new __WEBPACK_IMPORTED_MODULE_5_vue_router__["a" /* default */]({
@@ -13808,18 +13811,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   store: __WEBPACK_IMPORTED_MODULE_7__store_store_vue__["store"],
   components: {
     MainLayout: __WEBPACK_IMPORTED_MODULE_3__layouts_master_vue___default.a, MainFooter: __WEBPACK_IMPORTED_MODULE_4__layouts_footer_vue___default.a
-  },
-
-  created() {
-
-    console.log('asdf');
-    this.getCategories();
-  },
-  methods: {
-
-    getCategories() {
-      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get(window.location.origin + '/api/categories');
-    }
   }
 
 });
@@ -15084,6 +15075,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
@@ -15091,8 +15084,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       drawer: true,
       e6: [],
       e7: [],
-      states: ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Federated States of Micronesia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+      states: ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Federated States of Micronesia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+      categories: []
     };
+  },
+  created() {
+    this.getCategories();
+  },
+  methods: {
+
+    getCategories() {
+      var store = this.$store;
+      window.axios.get(window.base_url + 'api/maincategory').then(res => {
+        store.commit('mainCategories', res.data.mainCategories);
+      }).catch();
+    }
   }
 });
 
@@ -15285,6 +15291,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const mutations = {
 
+	mainCategories(state, mainCategories) {
+		state.mainCategories = mainCategories;
+	},
 	registerDialog(state, registerDialog) {
 		state.registerDialog = registerDialog;
 	},
@@ -15456,6 +15465,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const state = {
+	mainCategories: {},
 	loginDialog: false,
 	registerDialog: false,
 	productables: {},
@@ -15625,6 +15635,10 @@ const store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	mutations: __WEBPACK_IMPORTED_MODULE_3__mutations_vue__["mutations"],
 	actions: __WEBPACK_IMPORTED_MODULE_4__actions_vue__["actions"],
 	getters: {
+
+		mainCategories() {
+			return store.state.mainCategories;
+		},
 		registerDialog() {
 			return store.state.registerDialog;
 		},
@@ -16382,7 +16396,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('v-divider'), _vm._v(" "), _c('v-list-tile-title', [_c('v-select', {
     attrs: {
       "label": "Category",
-      "items": _vm.states,
+      "items": _vm.categories,
       "chips": "",
       "persistent-hint": ""
     },
