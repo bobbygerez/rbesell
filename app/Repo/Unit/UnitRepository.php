@@ -1,4 +1,6 @@
-<?php namespace App\Repo\Unit;
+<?php 
+
+namespace App\Repo\Unit;
 
 use App\Repo\BaseRepository;
 use App\Repo\BaseInterface;

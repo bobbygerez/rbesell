@@ -1,7 +1,8 @@
 <script type="text/javascript">
 	
 	export const state = {
-		mainCategories: {},
+		mainCategories: [],
+		drawer: true,
 		loginDialog: false,
 		registerDialog: false,
 		productables:{},

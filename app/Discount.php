@@ -12,7 +12,7 @@ class Discount extends Model
 
     protected $fillable = [
 
-    	'name', 'user_id', 'percent', 'desc', 'categorable_id', 'categorable_type', 'discountable_id', 'discountable_type', 'start', 'end'
+    	'name', 'user_id','own_id', 'percent', 'desc', 'categorable_id', 'categorable_type', 'discountable_id', 'discountable_type', 'start', 'end'
     ];
 
     /*************** GETTERS *******************/
@@ -21,17 +21,17 @@ class Discount extends Model
         return $value . '%';
     }
 
-    public function getStartAttribute($value){
+    // public function getStartAttribute($value){
 
 
-        return Carbon::parse($value)->toDayDateTimeString();
-    }
+    //     return Carbon::parse($value)->toDayDateTimeString();
+    // }
 
-     public function getEndAttribute($value){
+    //  public function getEndAttribute($value){
 
 
-        return Carbon::parse($value)->toDayDateTimeString();
-    }
+    //     return Carbon::parse($value)->toDayDateTimeString();
+    // }
     /************* END GETTERS *************/
 
 

@@ -23,5 +23,16 @@ class QuantityController extends Controller
             return $next($request);
         });
       }
+
+    public function update($id){
+
+    	return app($this->controllerName)->update($id);
+    	
+    }
+
+    public function store(){
+
+        return app($this->controllerName)->store();
+    }
    
 }

@@ -12,7 +12,7 @@ class Quantity extends Model
 
     protected $fillable = [
 
-    	'product_id', 'qty'
+    	'product_id', 'qty', 'quantitable_id', 'quantitable_type'
 
     ];
 
@@ -22,8 +22,20 @@ class Quantity extends Model
 
     }
 
+    public function getUpdatedAtAttribute($value){
+
+        return Carbon::parse($value)->toDayDateTimeString();
+    }
+
      public function products(){
       
          return $this->morphToMany('App\Product', 'quantitable')->withPivot(['user_id', 'price'])->withTimestamps();
-    } 
+    }
+
+    public function quantitable(){
+
+        return $this->morphTo();
+    }
+
+
 }

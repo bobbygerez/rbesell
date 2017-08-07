@@ -3,7 +3,14 @@
     <nav-drawer></nav-drawer>
     <toolbar></toolbar>
     <main class="grey lighten-4">
+      
       <v-container class="pt-0 mt-0" fluid>
+          <v-layout row-sm column child-flex-sm class="hidden-md-and-up ma-2">
+          <v-flex>
+            <h1>asdfsdf</h1>
+          </v-flex>
+        </v-layout>
+
         <router-view></router-view>
       </v-container>
     </main>

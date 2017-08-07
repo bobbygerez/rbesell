@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Category;
+namespace App\Http\Controllers\Discount;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\Controller\ResourceController;
 use Auth;
 
-class CategoryController extends Controller
+class DiscountController extends Controller
 {
+    use ResourceController;
 
-	use ResourceController;
 
     protected $controllerName;
     
@@ -20,15 +20,14 @@ class CategoryController extends Controller
 
 		$this->middleware(function($request, $next){
 
-			$this->controllerName = 'App\Http\Controllers\Branch'. '\\'. Auth::User()->role() . 'BranchController';
+			$this->controllerName = 'App\Http\Controllers\Discount'. '\\'. Auth::User()->role() . 'DiscountController';
 
 			return $next($request);
 		});
 
     }
+    public function store(){
 
-    public function index(){
-
-    	dd('asdf');
-    }
+		return app($this->controllerName)->store();
+	}
 }

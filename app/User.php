@@ -69,5 +69,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Position', 'position_user', 'user_id', 'position_id');
     }
 
+    public function products(){
+
+        return $this->morphToMany('App\Product', 'productable', 'productable_type', 'productable_id');
+    }
+
     
 }

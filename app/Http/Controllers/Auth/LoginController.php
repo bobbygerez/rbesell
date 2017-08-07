@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -56,7 +55,7 @@ class LoginController extends Controller
 
             'messages' => 'You have successfully Log-in!',
             'user' => $user,
-            'id' => Obfuscate::encode(Auth::User()->id),
+            'id' => uniqid(Auth::User()->id),
             'success' => true
 
             ]);

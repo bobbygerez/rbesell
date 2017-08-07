@@ -103,29 +103,15 @@ class Product extends Model
     } 
 
      
-     public function productable(){
+     public function owns(){
 
-        return $this->belongsToMany('App\Productable', 'product_productable', 'product_id', 'productable_id');
+        return $this->belongsToMany('App\Own', 'own_product', 'product_id', 'own_id');
      }
-    // public function productable(){
-
-    //     return $this->morphTo();
-    // }
-    //  public function productableUsers()
-    // {
-    //     return $this->morphedByMany('App\User', 'productable')->withPivot(['user_id', 'price', 'discount_id', 'quantity_id', 'price'])->withTimestamps();
-    // } 
-
-    //  public function productableMerchants()
-    // {
-    //     return $this->morphedByMany('App\Merchant', 'productable')->withPivot(['user_id', 'price', 'discount_id', 'quantity_id', 'price'])->withTimestamps();
-    // } 
-
-    // public function productableBranches()
-    // {
-    //     return $this->morphedByMany('App\Branch', 'productable')->withPivot(['user_id', 'price', 'discount_id', 'quantity_id', 'price'])->withTimestamps();
-    // } 
-
+    
+     public function productable()
+    {
+        return $this->morphTo();
+    } 
 
     /************* END OBJECT RELATIONAL MAPPING ***************/
 }

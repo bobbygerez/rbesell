@@ -1,4 +1,6 @@
-<?php namespace App\Repo\MerchantSubcategory;
+<?php 
+
+namespace App\Repo\MerchantSubcategory;
 
 use App\Repo\BaseInterface;
 

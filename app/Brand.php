@@ -13,4 +13,9 @@ class Brand extends Model
 
     	'name', 'desc'
     ];
+
+    public function brandable(){
+
+    	return $this->morphTo();
+    }
 }

@@ -1,7 +1,7 @@
 <template>
 	<v-toolbar fixed class="red darken-2 white--text text--darken-2" dense>
-      <v-toolbar-side-icon @click.native.stop="drawer = !drawer" class="white--text text--darken-2"></v-toolbar-side-icon>
-      <v-toolbar-title  class="hidden-sm-and-down">RBeSell</v-toolbar-title>
+      <v-toolbar-side-icon  @click.native="toggleDrawer" class="white--text text--darken-2 hidden-sm-and-down"  ></v-toolbar-side-icon>
+      <v-toolbar-title >RBeSell</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items >
         <v-text-field prepend-icon="search" hide-details single-line dark class="ml-2" auto-grow label="Search product..."></v-text-field>
@@ -14,8 +14,8 @@
           left
           class="hidden-md-and-up"
         >
-          <v-btn flat slot="activator" class="purple white--text text--darken-2">
-            <v-icon dark>more_vert</v-icon>
+          <v-btn flat dark slot="activator" class="purple white--text text--darken-2">
+            <v-icon >more_vert</v-icon>
           </v-btn>
           <v-list >
             <v-list-tile v-for="item in items" :key="item.title">
@@ -49,13 +49,21 @@
 
 		data () {
       return {
-        drawer: null,
         items: [
           { title: 'Login', icon: 'dashboard' },
           { title: 'Register', icon: 'question_answer' }
         ],
         mini: false,
         right: null
+      }
+    },
+    computed: {
+      drawer: {
+
+          get(){
+
+            return this.$store.getters.drawer
+          }
       }
     },
     methods: {
@@ -65,6 +73,18 @@
         },
         registerDialog(){
           this.$store.commit('registerDialog', true);
+        },
+        toggleDrawer(){
+
+          if(this.drawer == false){
+            console.log(this.drawer + 'false')
+            this.$store.commit('drawer', true);
+
+          }
+          else {
+            console.log(this.drawer + 'ture')
+            this.$store.commit('drawer', false);
+          }
         }
     }
 	}

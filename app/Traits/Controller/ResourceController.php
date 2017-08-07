@@ -5,7 +5,6 @@ namespace App\Traits\Controller;
 trait ResourceController {
 
 	public function index(){
-		
 		 return app($this->controllerName)->index();
 	}
 

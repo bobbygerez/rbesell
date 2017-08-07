@@ -20,6 +20,7 @@ class BaseRepository{
 
 	}
 
+	
 	public function find( $id ){
 
 		$origId = Obfuscate::decode($id);

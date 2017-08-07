@@ -32,5 +32,20 @@ class Branch extends Model
         return $this->morphOne('App\Address', 'addressable', 'address_type', 'address_id');
     }
 
+    public function products(){
+
+        return $this->morphToMany('App\Product', 'productable', 'productable_type', 'productable_id');
+    }
+
+    public function own(){
+
+      return $this->morphOne('App\Own', 'ownable', 'ownable_type', 'ownable_id');
+    }
+
+    public function quantity(){
+
+      return $this->morphMany('App\Quantity', 'quantitable', 'quantitable_type', 'quantitable_id');
+    }
+
  
 }

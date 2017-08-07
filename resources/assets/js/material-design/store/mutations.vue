@@ -1,6 +1,9 @@
 <script type="text/javascript">
 	export const mutations = {
 
+		drawer(state, drawer){
+			state.drawer = drawer
+		},
 		mainCategories(state, mainCategories){
 			state.mainCategories = mainCategories
 		},

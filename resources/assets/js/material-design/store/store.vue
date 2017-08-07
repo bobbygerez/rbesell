@@ -12,6 +12,9 @@ export const store = new Vuex.Store({
 	actions,
 	getters: {
 
+		drawer(){
+			return store.state.drawer
+		},
 		mainCategories(){
 			return store.state.mainCategories
 		},

@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Repo\Product\ProductInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-
 class SystemAdminProductController extends Controller
 {
     
@@ -22,7 +21,11 @@ class SystemAdminProductController extends Controller
     public function index(){
 
     	$request = app()->make('request');
-        $products = $this->product->with(['brand', 'productable'])->get();
+
+        $products = $this->product
+                    ->with(['user','owns.user', 'owns.discounts', 'owns.quantities', 'productable', 'owns.ownable'])
+                    ->get();
+
     	$paginate = new LengthAwarePaginator($products->forPage($request->page, $request->per_page), $products->count(), $request->per_page, $request->page);
 
     	return response()->json([
@@ -30,44 +33,36 @@ class SystemAdminProductController extends Controller
     			'products' => $paginate
 
     		]);
+
     }
 
     public function show($id){
 
-        $request = app()->make('request');
-        $products = $this->product->with(['discounts.discountable', 'brand', 'productable', 'productableUsers', 'productableMerchants', 'productableBranches'])->get();
-
-        $paginate = new LengthAwarePaginator($products->forPage($request->page, $request->per_page), $products->count(), $request->per_page, $request->page);
-
-        return response()->json([
-
-                'products' => $paginate
-
-            ]);
+       
     }
 
     public function edit($id){
 
-        $request = app()->make('request');
+         $request = app()->make('request');
 
-        $product = $this->product->whereNoDecode('id', $id)
+        $products = $this->product->whereNoDecode('id', $id)
                         ->with([
-                            'discounts.discountable',
-                            'discounts.user.personalData',
-                            'user.personalData',
-                            'brand', 
-                            'productableUsers', 
-                            'productableMerchants', 
-                            'productableBranches'
-                        ])
+                            'user','owns.user', 'owns.discounts', 
+                            'owns.quantities', 'productable', 'owns.ownable', 'owns.brand'
+                            ])
                         ->first();
+
+        $productables = $products->owns;
+
+        $paginate = new LengthAwarePaginator($productables->forPage(1, 10), $productables->count(), 10, 1);
 
 
         return response()->json([
 
-                'product' => $product
+                'productables' => $paginate
 
             ]);
+       
     }
 
     public function productSearch(){

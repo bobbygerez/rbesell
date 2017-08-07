@@ -87,6 +87,10 @@ Route::group(['prefix' => 'api'], function(){
 	Route::get('merchant-subcategories/{merchantsubcategory_id}', 'AjaxCategoriesController@merchantSubcategories');
 	Route::get('sample', 'AjaxCategoriesController@getData');
 
+
+
+
+	Route::post('merchantcategory-multiple', 'MerchantCategory\MerchantCategoryController@mainCategoriesSelected');
 	Route::resource('maincategory', 'MainCategory\MainCategoryController');
 	/** Products **/
 	Route::get('products', 'Product\ApiProductController@getData');

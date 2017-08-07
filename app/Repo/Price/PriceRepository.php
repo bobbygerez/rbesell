@@ -1,4 +1,6 @@
-<?php namespace App\Repo\Price;
+<?php 
+
+namespace App\Repo\Price;
 
 use App\Repo\BaseRepository;
 use App\Repo\BaseInterface;

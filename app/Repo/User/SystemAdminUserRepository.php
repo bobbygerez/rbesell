@@ -19,8 +19,6 @@ class SystemAdminUserRepository extends UserRepository implements UserInterface{
 
         $user->update($request->all());
 
-        $user->roles()->sync($roles);
-        
         $user->personalData->update( $request->all() );
 
         $user->contactData->update( $request->all() );
